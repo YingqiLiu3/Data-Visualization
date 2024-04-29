@@ -1,0 +1,140 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+option = { 
+	title: [
+	{
+    	text: '2022年和2021年各级各类学校教职工比例',
+    	left: 'center'
+  	},
+    {
+        text: '2022', 
+        left: '25%', 
+        bottom: '20%'
+    },
+    {
+        text: '2021', 
+        right: '25%', 
+        bottom: '20%'
+    }
+    ],
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c} ({d}%)'
+  },
+  legend: {
+    left: 'center',
+    top: '10%',
+    data: [
+"普通高等学校教职工数(万人)",
+"本科院校教职工数(万人)",
+"独立学院教职工数(万人)",
+"专科院校教职工数(万人)",
+"成人高等学校教职工数(万人)",
+"普通高中教职工数(万人)"
+    ]
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      dataView: { show: true, readOnly: false },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  series: [
+    {
+      name: '2022',
+      type: 'pie',
+      radius: [20, 140],
+      center: ['25%', '50%'],
+      roseType: 'radius',
+      itemStyle: {
+        borderRadius: 5
+      },
+      label: {
+        show: true,
+        formatter: '{d}%'
+      },
+      emphasis: {
+        label: {
+          show: true
+        }
+      },
+      data: [
+        { value: 2.7873, name: "成人高等学校教职工数(万人)" },
+        { value: 8.3915, name: "独立学院教职工数(万人)" },
+        { value: 83.2026, name: "专科院校教职工数(万人)" },
+        { value: 197.6711, name: "本科院校教职工数(万人)" },
+        { value: 287.0866, name: "普通高等学校教职工数(万人)"},
+        { value: 322.4457, name: "普通高中教职工数(万人)" }
+      ]
+    },
+    {
+      name: '2021',
+      type: 'pie',
+      radius: [20, 140],
+      center: ['75%', '50%'],
+      roseType: 'area',
+      itemStyle: {
+        borderRadius: 5
+      },
+      data: [
+        { value: 3.4363, name: "成人高等学校教职工数(万人)" },
+        { value: 8.2566, name: "独立学院教职工数(万人)" },
+        { value: 78.7355, name: "专科院校教职工数(万人)" },
+        { value: 193.1463, name: "本科院校教职工数(万人)" },
+        { value: 278.5592, name: "普通高等学校教职工数(万人)" },
+        { value: 311.9854, name: "普通高中教职工数(万人)" }
+      ]
+    }
+  ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+	
+}
+
+        </script>
+    </body>
+</html>
+    
